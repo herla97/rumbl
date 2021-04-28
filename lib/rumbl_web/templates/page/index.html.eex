@@ -1,0 +1,5 @@
+<section class="bg-gray-300 p-8 text-center">
+  <h1 class="text-indigo-500 text-3xl font-bold ml-9">
+    <%= gettext "Welcome to %{name}!", name: "Rumbl" %>
+  </h1>
+</section>
