@@ -1,43 +1,30 @@
 <section>
-  <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-500 mb-3">
-    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-      <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-        <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="/">
+  <nav>
+    <div>
+      <div>
+        <a href="/">
           Rumbl
         </a>
-        <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="navbarAccordian()">
-          <span class="block relative w-6 h-px rounded-sm bg-white"></span>
-          <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-          <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-        </button>
       </div>
-      <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="nav">
-        <ul class="flex flex-col lg:flex-row list-none ml-auto">
+      <div>
+        <ul>
           <%= if @current_user do %>
             <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
-                <%= @current_user.username %>
-              </a>
+              <%= @current_user.username %>
             </li>
             <li class="nav-item">
-              <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete", class: "px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" %>
+              <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete"%>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link "Register", to: Routes.user_path(@conn, :new), class: "px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" %>
+              <%= link "Register", to: Routes.user_path(@conn, :new)%>
             </li>
             <li class="nav-item">
-              <%= link "Log in", to: Routes.session_path(@conn, :new), class: "px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" %>
+              <%= link "Log in", to: Routes.session_path(@conn, :new)%>
             </li>
           <% end %>
         </ul>
       </div>
     </div>
-    <script>
-      function navbarAccordian() {
-          var x = document.getElementById("nav");
-          x.classList.toggle("hidden");
-      }
-    </script>
   </nav>
 </section>

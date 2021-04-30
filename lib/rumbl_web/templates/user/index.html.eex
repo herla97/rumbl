@@ -1,9 +1,8 @@
-<h1 class="text-center">Listing Users</h1>
-
-<table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+<h1>Listing Users</h1>
+<table>
   <%= for user <- @users do %>
-    <tr class="bg-gray-100 border-b border-gray-200">
-      <td class="px-4 py-3"> <%= render "user.html", user: user %></td>
+    <tr>
+      <td> <%= render "user.html", user: user %></td>
       <td> <%= link "View", to: Routes.user_path(@conn, :show, user.id) %></td>
     </tr>
   <% end %>
