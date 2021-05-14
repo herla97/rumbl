@@ -1,6 +1,6 @@
 # Rumbl
 
-## Elixir and Phoenix example with [TailwindCSS](https://tailwindcss.com/)
+## Elixir and Phoenix
 
 To start your Phoenix server:
 
