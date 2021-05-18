@@ -17,6 +17,7 @@ defmodule Rumbl.Accounts.User do
     |> cast(attrs, [:name, :username])
     |> validate_required([:name, :username])
     |> validate_length(:username, min: 1, max: 20)
+    |> unique_constraint(:username)
   end
 
   def registration_changeset(user, params) do
@@ -31,6 +32,7 @@ defmodule Rumbl.Accounts.User do
     case changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
         put_change(changeset, :password_hash, Pbkdf2.hash_pwd_salt(pass))
+
       _ ->
         changeset
     end
